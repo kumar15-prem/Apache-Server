@@ -1,4 +1,28 @@
 On server side:-
+Steps to configure YUM in Linux:-
+#umount /dev/sr0
+#mount /dev/sr0 /mnt
+#mkdir /RHEL
+#mount | grep /dev/sr0
+#cp -rf /mnt/* /RHEL/
+#du -hs /RHEL
+#du -hs /mnt
+#vi /etc/yum.repos.d/yum.repo
+[AppStream]
+name=AppStream
+baseurl=file:///RHEL/AppStream/
+gpgcheck=0
+enable=1
+
+[BaseOS]
+name=BaseOS
+baseurl=file:///RHEL/BaseOS/
+gpgcheck=0
+enable=1
+:wq
+yum clean all
+yum repolist
+
 yum install http* -y
 systemctl enable httpd
 systemctl start httpd
