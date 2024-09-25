@@ -1,0 +1,13 @@
+On server side:-
+yum install http* -y
+systemctl enable httpd
+systemctl start httpd
+systemctl status httpd
+firewall-cmd --permanent --add-service=http
+firewall-cmd --reload
+vi /var/www/html/index.html
+Hello, Welcome to India.
+:wq
+
+now access it from other computer using IP in browser
+http://192.168.1.10
